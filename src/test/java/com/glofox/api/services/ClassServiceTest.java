@@ -50,7 +50,10 @@ public class ClassServiceTest {
         List<StudioClass> fetchedList = service.getAllClasses(page, size);
 
         //Assert
-        Assertions.assertEquals(1, fetchedList.size());
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(1, fetchedList.size()),
+                () -> Assertions.assertEquals(1L, fetchedList.get(0).getId())
+        );
     }
 
     @Test
@@ -66,7 +69,10 @@ public class ClassServiceTest {
         List<StudioClass> fetchedList = service.getAllActiveClasses(page, size);
 
         //Assert
-        Assertions.assertEquals(1, fetchedList.size());
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(1, fetchedList.size()),
+                () -> Assertions.assertEquals(1L, fetchedList.get(0).getId())
+        );
     }
 
     @Test
