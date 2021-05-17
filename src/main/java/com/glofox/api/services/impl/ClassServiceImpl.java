@@ -58,7 +58,7 @@ public class ClassServiceImpl implements ClassService {
 
         StudioClass classByName = repository.findValidClassByName(classRequest.getName());
         if (classByName != null && !existingClass.getId().equals(classByName.getId())){
-            return new BaseResponse(ResponseCode.Not_Found.getCode(),
+            return new BaseResponse(ResponseCode.Bad_Request.getCode(),
                     "A class with this name already exist.");
         }
 

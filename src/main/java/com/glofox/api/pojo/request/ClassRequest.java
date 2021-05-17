@@ -38,7 +38,7 @@ public class ClassRequest implements Serializable {
 
     public ClassRequest() {}
 
-    public ClassRequest(String name, Date startDate, Date endDate, int capacity) {
+    public ClassRequest(String name, Date startDate, Date endDate, long capacity) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;

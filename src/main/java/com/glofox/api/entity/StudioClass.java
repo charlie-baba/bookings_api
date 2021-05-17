@@ -21,4 +21,14 @@ public class StudioClass extends BaseEntity {
     private Date endDate;
 
     private long capacity;
+
+    public StudioClass() {}
+
+    public StudioClass(Long id, String name, Date startDate, Date endDate, long capacity) {
+        this.setId(id);
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.capacity = capacity;
+    }
 }
