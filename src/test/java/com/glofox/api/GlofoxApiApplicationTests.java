@@ -1,13 +1,12 @@
 package com.glofox.api;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class GlofoxApiApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void main() {
+        GlofoxApiApplication.main(new String[] {});
     }
 
 }
