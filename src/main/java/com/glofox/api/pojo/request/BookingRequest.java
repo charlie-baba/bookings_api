@@ -33,9 +33,10 @@ public class BookingRequest implements Serializable {
 
     public BookingRequest() {}
 
-    public BookingRequest(String className, String firstName, String lastName) {
+    public BookingRequest(String className, String firstName, String lastName, String email) {
         this.className = className;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
     }
 }

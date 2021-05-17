@@ -17,4 +17,13 @@ public class Member extends BaseEntity {
     private String lastName;
 
     private String email;
+
+    public Member() {}
+
+    public Member(Long id, String firstName, String lastName, String email) {
+        this.setId(id);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 }

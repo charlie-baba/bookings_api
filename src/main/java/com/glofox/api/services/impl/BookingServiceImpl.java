@@ -47,12 +47,10 @@ public class BookingServiceImpl implements BookingService {
 
         long bookingsCount = bookingsRepository.countBookingsByClassName(bookingRequest.getClassName());
         if (bookingsCount >= studioClass.getCapacity()) {
-            return new BaseResponse(ResponseCode.Bad_Request.getCode(),
+            return new BaseResponse(ResponseCode.Not_Found.getCode(),
                     "This class has been fully booked.");
         }
 
-        Booking booking = new Booking();
-        booking.setStudioClass(studioClass);
         Member member;
         member = membersRepository.findByEmail(bookingRequest.getEmail());
         if (member == null){
@@ -62,7 +60,7 @@ public class BookingServiceImpl implements BookingService {
             member.setLastName(bookingRequest.getLastName());
             membersRepository.save(member);
         }
-        booking.setMember(member);
+        Booking booking = new Booking(member, studioClass);
         bookingsRepository.save(booking);
         return new BaseResponse(ResponseCode.Success);
     }

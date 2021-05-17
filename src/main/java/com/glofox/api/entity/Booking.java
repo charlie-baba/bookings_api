@@ -15,4 +15,11 @@ public class Booking extends BaseEntity {
     private Member member;
 
     private StudioClass studioClass;
+
+    public Booking() {}
+
+    public Booking(Member member, StudioClass studioClass) {
+        this.member = member;
+        this.studioClass = studioClass;
+    }
 }

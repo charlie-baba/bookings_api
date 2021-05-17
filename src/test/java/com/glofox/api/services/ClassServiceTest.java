@@ -5,9 +5,9 @@ import com.glofox.api.pojo.request.ClassRequest;
 import com.glofox.api.pojo.response.BaseResponse;
 import com.glofox.api.repositories.ClassesRepository;
 import com.glofox.api.services.impl.ClassServiceImpl;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -18,7 +18,6 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.never;
 
 /**
  * @author Charles on 17/05/2021
@@ -51,7 +50,7 @@ public class ClassServiceTest {
         List<StudioClass> fetchedList = service.getAllClasses(page, size);
 
         //Assert
-        Assert.assertEquals(1, fetchedList.size());
+        Assertions.assertEquals(1, fetchedList.size());
     }
 
     @Test
@@ -67,7 +66,7 @@ public class ClassServiceTest {
         List<StudioClass> fetchedList = service.getAllActiveClasses(page, size);
 
         //Assert
-        Assert.assertEquals(1, fetchedList.size());
+        Assertions.assertEquals(1, fetchedList.size());
     }
 
     @Test
@@ -79,7 +78,7 @@ public class ClassServiceTest {
         BaseResponse response = service.saveClass(request);
 
         //Assert
-        Assert.assertEquals("00", response.getResponseCode());
+        Assertions.assertEquals("00", response.getResponseCode());
         verify(mockRepository).save(any(StudioClass.class));
     }
 
@@ -94,7 +93,7 @@ public class ClassServiceTest {
         BaseResponse response = service.saveClass(request);
 
         //Assert
-        Assert.assertEquals("33", response.getResponseCode());
+        Assertions.assertEquals("33", response.getResponseCode());
         verify(mockRepository, never()).save(any(StudioClass.class));
     }
 
@@ -111,7 +110,7 @@ public class ClassServiceTest {
         BaseResponse response = service.updateClass(id, request);
 
         //Assert
-        Assert.assertEquals("00", response.getResponseCode());
+        Assertions.assertEquals("00", response.getResponseCode());
         verify(mockRepository).update(anyLong(), any(StudioClass.class));
     }
 
@@ -126,7 +125,7 @@ public class ClassServiceTest {
         BaseResponse response = service.updateClass(id, request);
 
         //Assert
-        Assert.assertEquals("22", response.getResponseCode());
+        Assertions.assertEquals("22", response.getResponseCode());
         verify(mockRepository, never()).update(anyLong(), any(StudioClass.class));
     }
 
@@ -144,7 +143,7 @@ public class ClassServiceTest {
         BaseResponse response = service.updateClass(id, request);
 
         //Assert
-        Assert.assertEquals("33", response.getResponseCode());
+        Assertions.assertEquals("33", response.getResponseCode());
         verify(mockRepository, never()).update(anyLong(), any(StudioClass.class));
     }
 
@@ -159,7 +158,7 @@ public class ClassServiceTest {
         BaseResponse response = service.deleteClass(id);
 
         //Assert
-        Assert.assertEquals("00", response.getResponseCode());
+        Assertions.assertEquals("00", response.getResponseCode());
         verify(mockRepository).delete(anyLong());
     }
 
@@ -172,7 +171,7 @@ public class ClassServiceTest {
         BaseResponse response = service.deleteClass(1L);
 
         //Assert
-        Assert.assertEquals("22", response.getResponseCode());
+        Assertions.assertEquals("22", response.getResponseCode());
         verify(mockRepository, never()).delete(anyLong());
     }
 }
