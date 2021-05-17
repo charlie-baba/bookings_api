@@ -1,1 +1,1 @@
-server.port=8080
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/fe0aa1196db448b693e8091f9116f309)](https://www.codacy.com/gh/charlie-baba/bookings_api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=charlie-baba/bookings_api&amp;utm_campaign=Badge_Grade)
