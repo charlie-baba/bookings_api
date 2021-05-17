@@ -31,7 +31,7 @@ public class ErrorUtilTest {
     }
 
     @Test
-    public void getResponseMessage_ShouldReturnErrors() {
+    public void getResponseMessageShouldReturnErrors() {
         //Arrange
         List<ObjectError> errors = new ArrayList<>();
         errors.add(new ObjectError("firstName", "First name is required"));
@@ -45,7 +45,7 @@ public class ErrorUtilTest {
     }
 
     @Test
-    public void getBaseResponseResponseEntity_ShouldReturnErrors() {
+    public void getBaseResponseResponseEntityShouldReturnErrors() {
         //Arrange
         List<ObjectError> errors = new ArrayList<>();
         errors.add(new ObjectError("firstName", "First name is required"));

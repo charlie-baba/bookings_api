@@ -13,7 +13,7 @@ import java.util.Date;
 public class DateUtilTest {
 
     @Test
-    public void isStillValid_ShouldReturnTrue() {
+    public void isStillValidShouldReturnTrue() {
         //Arrange
         Date d1 = new Date();
         LocalDateTime ldt = LocalDateTime.now().plusDays(2);
@@ -27,7 +27,7 @@ public class DateUtilTest {
     }
 
     @Test
-    public void isStillValid_ShouldReturnFalse() {
+    public void isStillValidShouldReturnFalse() {
         //Arrange
         LocalDateTime ldt = LocalDateTime.now().minusDays(4);
         Date d1 = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
