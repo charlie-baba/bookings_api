@@ -67,6 +67,7 @@ public class BookingServiceTest {
 
         //Assert
         Assertions.assertAll(
+                () -> Assertions.assertNotNull(fetchedList),
                 () -> Assertions.assertEquals(1, fetchedList.size()),
                 () -> Assertions.assertEquals(1L, fetchedList.get(0).getMember().getId())
         );

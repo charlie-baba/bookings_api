@@ -51,6 +51,7 @@ public class ClassServiceTest {
 
         //Assert
         Assertions.assertAll(
+                () -> Assertions.assertNotNull(fetchedList),
                 () -> Assertions.assertEquals(1, fetchedList.size()),
                 () -> Assertions.assertEquals(1L, fetchedList.get(0).getId())
         );
@@ -70,6 +71,7 @@ public class ClassServiceTest {
 
         //Assert
         Assertions.assertAll(
+                () -> Assertions.assertNotNull(fetchedList),
                 () -> Assertions.assertEquals(1, fetchedList.size()),
                 () -> Assertions.assertEquals(1L, fetchedList.get(0).getId())
         );
