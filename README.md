@@ -52,7 +52,7 @@ Fetch Active/Ongoing Classes
 
     GET | http://localhost:[8080]/api/classes/getActive/{page}
 
-Create booking
+Create classes
 
     POST | http://localhost:[8080]/api/classes
      {
@@ -62,7 +62,7 @@ Create booking
          "capacity": 20
      }
 
-Update booking
+Update classes
 
     PUT | http://localhost:[8080]/api/booking/3
      {
@@ -72,7 +72,7 @@ Update booking
          "capacity": 10
      }
 
-Delete booking
+Delete classes
 
     DELETE | http://localhost:[8080]/api/booking/1
 
