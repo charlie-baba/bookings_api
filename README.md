@@ -2,28 +2,23 @@
 
 # booking-api
 
-This Booking-API article will walk you through building an application that allows you to create a user, email user to verify account, verifies the account and can deactivate the user without deleting the record.
-
-For the purpose of demo, the user-api has been deployed to
-
-    https://arc-user-api.herokuapp.com
-You can jump to 'Email Configuration' section to continue without setting up the application.
+This Booking-API article will walk you through building an application that allows you to create a booking, email booking to verify account, verifies the account and can deactivate the booking without deleting the record.
 
 ## Prerequisites
 
-Follow each step to build and deploy the app, or skip to.
 * Basic Java knowledge, including an installed version of the JVM and Maven.
 * Basic Git knowledge, including an installed version of Git.
 * Postgres server installed on your device.
 
 ### How To run Booking-API
 
+Follow each step to build and deploy the app
 Running the app from and IDE like intellij or Eclipse
 
-    - clone the repo from https://github.com/charlie-baba/user-api.git
+    - clone the repo from https://github.com/charlie-baba/booking-api.git
     - add the project to intellij or any java IDE
     - make sure to resolve all meaven dependencies (already included in the project).
-    - run the UserApiApplicaiton class
+    - run the GlofoxApiApplication class
 
     INFO: Initializing ProtocolHandler ["http://localhost:8080"] 
     - The default port is 8080, it can be modified from the application.properties file (key = "server.port") 
@@ -32,54 +27,69 @@ Alternatively,
 To build your application simply run:
 
     $ mvn package
-    $ java -jar target/dependency/user-api.jar target/*.jar
+    $ java -jar target/dependency/booking-api.jar target/*.jar
 
 That's it. Your application should start up on port 8080.
-
-## Database Configuration
-
-You need to have postgres server already installed on your device.
-
-    - Create a database with name "user_data"
-The default postgres port is 5432, can also be changed in the application.properties file (key = "app.jdbc.url")
-The database schema would be generated once you run the app.
-
-## Email Configuration
-
-The email properties are in the application.properties file (section: Email Config)
-If you use a gmail account just update the "email.username" and "email.password" properties
-If you use an alternate email provide also update the "email.host", and "email.port" tls properties.
-The email configuration is for the source email when sending out activation and verification emails.
-The email is sent to the actual email used in registering the users.
 
 ## Swagger
 
 ### Html Docs
 The swagger endpoint is "http://localhost:8080/swagger-ui/index.html", assuming that your port is 8080.
-or "https://arc-user-api.herokuapp.com/swagger-ui/index.html" for the demo project
 
 ### JSON Docs
-The swagger endpoint is "http://localhost:8080/v2/api-docs", or "https://arc-user-api.herokuapp.com/v2/api-docs" for the demo project
+The swagger endpoint is "http://localhost:8080/v2/api-docs", for the demo project
 
-## User endpoints
 
-The user endpoints are listed below
+## Classes endpoints
 
-Fetch Users
+The classes endpoints are listed below
 
-    GET | https://arc-user-api.herokuapp.com/api/users/0/15
-    GET | http://localhost:[8080]/api/users/{page}/{size}
-Create user
+Fetch All (both active and inactive) Classes
 
-    POST | https://arc-user-api.herokuapp.com/api/user
-    POST | http://localhost:[8080]/api/user
+    GET | http://localhost:[8080]/api/classes/getAll/{page}
 
-Update user
+Fetch Active/Ongoing Classes
 
-    PUT | https://arc-user-api.herokuapp.com/api/user/3
-    PUT | http://localhost:[8080]/api/user/3
+    GET | http://localhost:[8080]/api/classes/getActive/{page}
 
-Delete user
+Create booking
 
-    DELETE | https://arc-user-api.herokuapp.com/api/user/3
-    DELETE | http://localhost:[8080]/api/user/3
+    POST | http://localhost:[8080]/api/classes
+     {
+         "name": "Yoga",
+         "startDate": "2021-05-17T13:53:46.242+00:00",
+         "endDate": "2021-05-27T13:53:46.242+00:00",
+         "capacity": 20
+     }
+
+Update booking
+
+    PUT | http://localhost:[8080]/api/booking/3
+     {
+         "name": "Yoga",
+         "startDate": "2021-05-17T13:53:46.242+00:00",
+         "endDate": "2021-05-27T13:53:46.242+00:00",
+         "capacity": 10
+     }
+
+Delete booking
+
+    DELETE | http://localhost:[8080]/api/booking/1
+
+## Booking endpoints
+
+The booking endpoints are listed below
+
+Fetch Bookings
+
+    GET | http://localhost:[8080]/api/bookings/{page}
+
+Create booking
+
+    POST | http://localhost:[8080]/api/booking
+    {
+        "className": "Yoga",
+        "firstName": "Obiefuna",
+        "lastName": "Okonkwo",
+        "email": ""
+    }
