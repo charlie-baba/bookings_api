@@ -4,13 +4,11 @@ import com.glofox.api.entity.Booking;
 import com.glofox.api.entity.Member;
 import com.glofox.api.entity.StudioClass;
 import com.glofox.api.pojo.request.BookingRequest;
-import com.glofox.api.pojo.request.ClassRequest;
 import com.glofox.api.pojo.response.BaseResponse;
 import com.glofox.api.repositories.BookingsRepository;
 import com.glofox.api.repositories.ClassesRepository;
 import com.glofox.api.repositories.MembersRepository;
 import com.glofox.api.services.impl.BookingServiceImpl;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -23,9 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.*;
 
 /**
  * @author Charles on 17/05/2021

@@ -7,9 +7,7 @@ import lombok.ToString;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author Charles on 16/05/2021

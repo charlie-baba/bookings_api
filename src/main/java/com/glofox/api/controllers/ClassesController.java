@@ -58,9 +58,12 @@ public class ClassesController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<BaseResponse> updateClass(@RequestBody ClassRequest request,
-                                                   @PathVariable("id") Long id) {
-        ResponseEntity<BaseResponse> respEntity;
+    public ResponseEntity<BaseResponse> updateClass(@Valid @RequestBody ClassRequest request,
+                                                   @PathVariable("id") Long id,
+                                                    Errors errors) {
+        ResponseEntity<BaseResponse> respEntity = ErrorUtil.getBaseResponseResponseEntity(errors);
+        if (respEntity != null) return respEntity;
+
         try {
             request.setName(StringUtils.capitalize(request.getName().trim()));
             BaseResponse response = classService.updateClass(id, request);
